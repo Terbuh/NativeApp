@@ -1,0 +1,49 @@
+{
+    "customers": [
+        {
+            "id": "1",
+            "name": "John",
+            "surname": "Doe",
+            "vin": "123456789",
+            "phone": "1234567890",
+            "car": "Toyota",
+            "engine": "V6",
+            "kw": "200",
+            "czesci": 10,
+            "czesciKlient": 5,
+            "robocizna": 150,
+            "select": "50/50",
+            "suma": 300
+        },
+        {
+            "id": "2",
+            "name": "Jane",
+            "surname": "Smith",
+            "vin": "987654321",
+            "phone": "0987654321",
+            "car": "Honda",
+            "engine": "4-cylinder",
+            "kw": "150",
+            "czesci": 8,
+            "czesciKlient": 3,
+            "robocizna": 120,
+            "select": "70/30",
+            "suma": 210
+        },
+        {
+            "id": "3",
+            "name": "Mike",
+            "surname": "Johnson",
+            "vin": "456789123",
+            "phone": "9876543210",
+            "car": "Ford",
+            "engine": "V8",
+            "kw": "250",
+            "czesci": 12,
+            "czesciKlient": 6,
+            "robocizna": 180,
+            "select": "80/20",
+            "suma": 330
+        }
+    ]
+}
