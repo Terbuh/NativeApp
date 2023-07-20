@@ -34,7 +34,7 @@ const DetailsScreen = ({ route }) => {
     return (
         <View style={styles.detailsContainer}>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Nazwa klienta:</Text>
+                <Text style={styles.detailsTitle}>Name:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.name}
@@ -44,7 +44,7 @@ const DetailsScreen = ({ route }) => {
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Nazwisko:</Text>
+                <Text style={styles.detailsTitle}>Surname:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.surname}
@@ -64,13 +64,14 @@ const DetailsScreen = ({ route }) => {
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Telefon:</Text>
+                <Text style={styles.detailsTitle}>Phone:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.phone}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, phone: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
             <View style={styles.wrapper_single}>
@@ -94,43 +95,47 @@ const DetailsScreen = ({ route }) => {
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>kw:</Text>
+                <Text style={styles.detailsTitle}>KW:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.kw}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, kw: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Części:</Text>
+                <Text style={styles.detailsTitle}>Parts:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.czesci}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, czesci: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Części/Klient:</Text>
+                <Text style={styles.detailsTitle}>Parts/Client:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.czesciKlient}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, czesciKlient: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Robocizna:</Text>
+                <Text style={styles.detailsTitle}>Labor:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.robocizna}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, robocizna: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
             <View style={styles.wrapper_single}>
@@ -144,16 +149,28 @@ const DetailsScreen = ({ route }) => {
                 />
             </View>
             <View style={styles.wrapper_single}>
-                <Text style={styles.detailsTitle}>Suma:</Text>
+                <Text style={styles.detailsTitle}>Sum:</Text>
                 <TextInput
                     style={styles.detailsInput}
                     value={customerData.suma}
                     onChangeText={(text) =>
                         setCustomerData((prevData) => ({ ...prevData, suma: text }))
                     }
+                    keyboardType="numeric"
                 />
             </View>
-            <Button title="Zapisz" onPress={handleSave} color={'#d5bdaf'} />
+            <View style={styles.wrapper_single}>
+                <Text style={styles.detailsTitle}>Income:</Text>
+                <TextInput
+                    style={styles.detailsInput}
+                    value={customerData.Income}
+                    onChangeText={(text) =>
+                        setCustomerData((prevData) => ({ ...prevData, Income: text }))
+                    }
+                    keyboardType="numeric"
+                />
+            </View>
+            <Button title="Save" onPress={handleSave} color={'#d5bdaf'} />
             <Toast ref={(ref) => Toast.setRef(ref)} />
         </View>
     );

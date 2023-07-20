@@ -36,11 +36,13 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
     },
     detailsTitle: {
-        fontSize: 15,
+        fontSize: 17,
         fontWeight: "bold",
         padding: 3
     },
-    detailsInput: {},
+    detailsInput: {
+        fontSize: 17
+    },
     detailsContainer: {
         height: "100%",
         alignItems: 'center',
@@ -51,6 +53,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 5,
+        height: 40
 
     },
     filterInput:{

@@ -22,15 +22,15 @@ const ListItem = ({ item, onItemUpdate, onPressDetails, onItemDelete }) => {
 
     const handleDeleteClick = () => {
         Alert.alert(
-            'Potwierdzenie',
-            'Czy na pewno chcesz usunąć ten element?',
+            "Confirmation",
+            "Are you sure you want to delete this item?",
             [
                 {
-                    text: 'Anuluj',
+                    text: 'Cancel',
                     style: 'cancel',
                 },
                 {
-                    text: 'Usuń',
+                    text: 'Delete',
                     style: 'destructive',
                     onPress: () => onItemDelete(item.id),
                 },
@@ -45,21 +45,21 @@ const ListItem = ({ item, onItemUpdate, onPressDetails, onItemDelete }) => {
                 <View style={styles.editModeContainer}>
                     <TextInput style={styles.input} value={name} onChangeText={setName} />
                     <TouchableOpacity style={styles.button} onPress={handleSaveClick}>
-                        <Text style={styles.buttonText}>Zapisz</Text>
+                        <Text style={styles.buttonText}>Save</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.button} onPress={handleCancelClick}>
-                        <Text style={styles.buttonText}>Anuluj</Text>
+                        <Text style={styles.buttonText}>Cancel</Text>
                     </TouchableOpacity>
                 </View>
             );
         } else {
             return (
                 <View style={styles.itemContainer}>
-                    <Text style={styles.itemText}>Nazwa: {item.name}</Text>
+                    <Text style={styles.itemText}>Name: {item.name}</Text>
                     <TouchableOpacity style={styles.detailsButton} onPress={onPressDetails}>
-                        <Text style={styles.detailsButtonText}>Szczegóły</Text>
+                        <Text style={styles.detailsButtonText}>Details</Text>
                     </TouchableOpacity>
-                    <Button title="Usuń" onPress={handleDeleteClick} color="red" />
+                    <Button title="Delete" onPress={handleDeleteClick} color="red" />
                 </View>
             );
         }

@@ -29,21 +29,6 @@
             "robocizna": 120,
             "select": "70/30",
             "suma": 210
-        },
-        {
-            "id": "3",
-            "name": "Mike",
-            "surname": "Johnson",
-            "vin": "456789123",
-            "phone": "9876543210",
-            "car": "Ford",
-            "engine": "V8",
-            "kw": "250",
-            "czesci": 12,
-            "czesciKlient": 6,
-            "robocizna": 180,
-            "select": "80/20",
-            "suma": 330
         }
     ]
 }

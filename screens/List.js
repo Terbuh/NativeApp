@@ -127,21 +127,21 @@ const List = () => {
         <View style={styles.container}>
             <View style={styles.view}>
                 <TextInput
-                    placeholder="Nazwa klienta"
+                    placeholder="Client name"
                     value={name}
                     onChangeText={(text) => setName(text)}
                     style={styles.orderName}
                 />
                 <View style={styles.wrappper}>
                     <Button
-                        title="Dodaj do tabeli"
+                        title="Add to list"
                         onPress={handleAddItem}
                         color={'#d5bdaf'}
                     />
                 </View>
             </View>
             <TextInput
-                placeholder="Szukaj w bazie klientów"
+                placeholder="Search a client in the list"
                 value={filterValue}
                 onChangeText={handleFilterItems}
                 style={styles.filterInput}
@@ -157,7 +157,7 @@ const List = () => {
                 <Stack.Screen
                     name="Details"
                     component={DetailsScreen}
-                    options={{ title: 'Szczegóły' }}
+                    options={{ title: 'Details' }}
                 />
             </Stack.Navigator>
 
