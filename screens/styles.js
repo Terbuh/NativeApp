@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         padding: 3
     },
     detailsInput: {
-        fontSize: 17
+        fontSize: 17,
     },
     detailsContainer: {
         height: "100%",

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button,TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { styles } from './styles';
 import Toast from 'react-native-toast-message';
 
@@ -27,11 +27,16 @@ const DetailsScreen = ({ route }) => {
             visibilityTime: 2000,
         });
     };
+    const handleScreenTouch = () => {
+        Keyboard.dismiss();
+    }
+    
 
     if (!customer) {
         return null;
     }
     return (
+        <TouchableWithoutFeedback onPress={handleScreenTouch}>
         <View style={styles.detailsContainer}>
             <View style={styles.wrapper_single}>
                 <Text style={styles.detailsTitle}>Name:</Text>
@@ -173,6 +178,7 @@ const DetailsScreen = ({ route }) => {
             <Button title="Save" onPress={handleSave} color={'#d5bdaf'} />
             <Toast ref={(ref) => Toast.setRef(ref)} />
         </View>
+        </TouchableWithoutFeedback>
     );
 };
 
