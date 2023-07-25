@@ -158,8 +158,6 @@ const List = () => {
           options={{ title: "Details" }}
         />
       </Stack.Navigator>
-
-      {/* <Toast ref={(ref) => Toast.setRef(ref)} /> */}
     </View>
   );
 };

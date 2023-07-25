@@ -1,29 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   Button,
   Alert,
 } from "react-native";
 
-const ListItem = ({ item, onItemUpdate, onPressDetails, onItemDelete }) => {
-  const [editMode, setEditMode] = useState(false);
-  const [name, setName] = useState(item.name);
-
-  const handleSaveClick = () => {
-    const updatedItem = { ...item, name: name };
-    onItemUpdate(updatedItem);
-    setEditMode(false);
-  };
-
-  const handleCancelClick = () => {
-    setName(item.name);
-    setEditMode(false);
-  };
-
+const ListItem = ({ item, onPressDetails, onItemDelete }) => {
   const handleDeleteClick = () => {
     Alert.alert(
       "Confirmation",
@@ -44,32 +29,15 @@ const ListItem = ({ item, onItemUpdate, onPressDetails, onItemDelete }) => {
   };
 
   const renderContent = () => {
-    if (editMode) {
-      return (
-        <View style={styles.editModeContainer}>
-          <TextInput style={styles.input} value={name} onChangeText={setName} />
-          <TouchableOpacity style={styles.button} onPress={handleSaveClick}>
-            <Text style={styles.buttonText}>Save</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleCancelClick}>
-            <Text style={styles.buttonText}>Cancel</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    } else {
-      return (
-        <View style={styles.itemContainer}>
-          <Text style={styles.itemText}>Name: {item.name}</Text>
-          <TouchableOpacity
-            style={styles.detailsButton}
-            onPress={onPressDetails}
-          >
-            <Text style={styles.detailsButtonText}>Details</Text>
-          </TouchableOpacity>
-          <Button title="Delete" onPress={handleDeleteClick} color="red" />
-        </View>
-      );
-    }
+    return (
+      <View style={styles.itemContainer}>
+        <Text style={styles.itemText}>Name: {item.name}</Text>
+        <TouchableOpacity style={styles.detailsButton} onPress={onPressDetails}>
+          <Text style={styles.detailsButtonText}>Details</Text>
+        </TouchableOpacity>
+        <Button title="Delete" onPress={handleDeleteClick} color="red" />
+      </View>
+    );
   };
 
   return renderContent();
