@@ -8,6 +8,7 @@ import DetailsScreen from "./DetailsScreen";
 import Data from "./data.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Toast from "react-native-toast-message";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Stack = createStackNavigator();
 
@@ -123,42 +124,47 @@ const List = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.view}>
-        <TextInput
-          placeholder="Client name"
-          value={name}
-          onChangeText={(text) => setName(text)}
-          style={styles.orderName}
-        />
-        <View style={styles.wrappper}>
-          <Button
-            title="Add to list"
-            onPress={handleAddItem}
-            color={"#d5bdaf"}
+    <LinearGradient
+      colors={["#5D49C6", "#9969CC", "#C580CF"]}
+      style={styles.buttonContainer}
+    >
+      <View style={styles.container}>
+        <View style={styles.view}>
+          <TextInput
+            placeholder="Client name"
+            value={name}
+            onChangeText={(text) => setName(text)}
+            style={styles.orderName}
           />
+          <View style={styles.wrappper}>
+            <Button
+              title="Add to list"
+              onPress={handleAddItem}
+              color={"#331984"}
+            />
+          </View>
         </View>
-      </View>
-      <TextInput
-        placeholder="Search a client in the list"
-        value={filterValue}
-        onChangeText={handleFilterItems}
-        style={styles.filterInput}
-      />
-      <FlatList
-        renderItem={renderItem}
-        data={filteredItems}
-        keyExtractor={(item) => item.id}
-      />
-
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Details"
-          component={DetailsScreen}
-          options={{ title: "Details" }}
+        <TextInput
+          placeholder="Search a client in the list"
+          value={filterValue}
+          onChangeText={handleFilterItems}
+          style={styles.filterInput}
         />
-      </Stack.Navigator>
-    </View>
+        <FlatList
+          renderItem={renderItem}
+          data={filteredItems}
+          keyExtractor={(item) => item.id}
+        />
+
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Details"
+            component={DetailsScreen}
+            options={{ title: "Details" }}
+          />
+        </Stack.Navigator>
+      </View>
+    </LinearGradient>
   );
 };
 

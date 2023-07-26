@@ -4,7 +4,6 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#edede9",
     height: "100%",
   },
   linearGradient: {
@@ -16,7 +15,6 @@ export const styles = StyleSheet.create({
   view: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#edede9",
   },
   text: {
     fontFamily: "roboto",
@@ -51,7 +49,6 @@ export const styles = StyleSheet.create({
   detailsContainer: {
     height: "100%",
     alignItems: "center",
-    backgroundColor: "#edede9",
   },
   wrapper_single: {
     display: "flex",

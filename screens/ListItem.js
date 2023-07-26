@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Button,
-  Alert,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 
 const ListItem = ({ item, onPressDetails, onItemDelete }) => {
   const handleDeleteClick = () => {
@@ -24,7 +17,10 @@ const ListItem = ({ item, onPressDetails, onItemDelete }) => {
           onPress: () => onItemDelete(item.id),
         },
       ],
-      { cancelable: true }
+      {
+        cancelable: true,
+        overlayStyle: styles.alertOverlay, // Dodaj nowy styl do zmiany tła potwierdzenia usuwania
+      }
     );
   };
 
@@ -35,7 +31,12 @@ const ListItem = ({ item, onPressDetails, onItemDelete }) => {
         <TouchableOpacity style={styles.detailsButton} onPress={onPressDetails}>
           <Text style={styles.detailsButtonText}>Details</Text>
         </TouchableOpacity>
-        <Button title="Delete" onPress={handleDeleteClick} color="red" />
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={handleDeleteClick}
+        >
+          <Text style={styles.detailsButtonText}>Delete</Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -67,19 +68,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     paddingHorizontal: 10,
   },
-  button: {
-    backgroundColor: "blue",
-    padding: 10,
-    alignItems: "center",
-    borderRadius: 5,
-    marginBottom: 10,
-  },
   buttonText: {
     color: "white",
     fontSize: 16,
   },
   detailsButton: {
-    backgroundColor: "#d5bdaf",
+    backgroundColor: "#331984",
+    padding: 10,
+    alignItems: "center",
+    borderRadius: 5,
+    marginTop: 10,
+  },
+  deleteButton: {
+    backgroundColor: "#BD97D7",
     padding: 10,
     alignItems: "center",
     borderRadius: 5,

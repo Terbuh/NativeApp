@@ -109,7 +109,7 @@ const Calculate = ({ route, onSaveData }) => {
             editable={false}
           />
         </View>
-        <Button title="Save" onPress={handleSave} color={"#d5bdaf"} />
+        <Button title="Save" onPress={handleSave} color={"#331984"} />
         <Toast ref={(ref) => Toast.setRef(ref)} />
       </View>
     </TouchableWithoutFeedback>

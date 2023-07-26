@@ -13,12 +13,22 @@ const App = () => {
         <Stack.Screen
           name="List"
           component={List}
-          options={{ title: "XClients" }}
+          options={{
+            title: "XClients",
+            headerStyle: {
+              backgroundColor: "#5D49C6", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
+            },
+          }}
         />
         <Stack.Screen
           name="Details"
           component={DetailsScreen}
-          options={{ title: "Details" }}
+          options={{
+            title: "Details",
+            headerStyle: {
+              backgroundColor: "#5D49C6", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
