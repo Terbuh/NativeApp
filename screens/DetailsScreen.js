@@ -35,7 +35,7 @@ const DetailsScreen = ({ route }) => {
   }
   return (
     <LinearGradient
-      colors={["#5D49C6", "#9969CC", "#C580CF"]}
+      colors={["#F5E4D7", "#839788", "#BDBBB6"]}
       style={styles.buttonContainer}
     >
       <TouchableWithoutFeedback onPress={handleScreenTouch}>

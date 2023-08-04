@@ -16,7 +16,7 @@ const App = () => {
           options={{
             title: "XClients",
             headerStyle: {
-              backgroundColor: "#5D49C6", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
+              backgroundColor: "#F5E4D7", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
             },
           }}
         />
@@ -26,7 +26,7 @@ const App = () => {
           options={{
             title: "Details",
             headerStyle: {
-              backgroundColor: "#5D49C6", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
+              backgroundColor: "#F5E4D7", // Ustawienie koloru tła nagłówka na niebieski tylko dla ekranu "Details"
             },
           }}
         />

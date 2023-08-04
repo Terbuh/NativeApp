@@ -2,9 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    alignItems: "center",
-    // height: "200%",
+    width: "100%",
+    height: "100%",
   },
   linearGradient: {
     // flex: 1,
@@ -12,9 +11,13 @@ export const styles = StyleSheet.create({
     paddingRight: 15,
     borderRadius: 5,
   },
-  view: {
+  addClient: {
+    display: "flex",
+    flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    alignContent: "center",
+    marginBottom: 20,
+    justifyContent: "space-evenly",
   },
   text: {
     fontFamily: "roboto",
@@ -32,11 +35,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   orderName: {
-    fontSize: 18,
-    height: 40,
+    fontSize: 20,
   },
-  wrappper: {
-    marginBottom: 10,
+  searchClient: {
+    width: "100%",
+    alignItems: "center",
   },
   detailsTitle: {
     fontSize: 17,
@@ -46,23 +49,27 @@ export const styles = StyleSheet.create({
   detailsInput: {
     fontSize: 17,
   },
-  detailsContainer: {
-    height: "100%",
-    alignItems: "center",
-  },
-  wrapper_single: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 5,
-    height: 40,
-  },
+
   filterInput: {
     borderTopWidth: 1,
-    borderTopColor: "gray",
+    borderTopColor: "black",
     borderBottomWidth: 1,
-    borderBottomColor: "gray",
-    height: "5%",
-    width: "40%",
+    borderBottomColor: "black",
+  },
+  listWrapper: {
+    width: "100%",
+    flex: 1,
+  },
+  detailsButton: {
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  detailsButtonText: {
+    color: "#A64253",
+    fontSize: 20,
+  },
+  flatList: {
+    width: "100%",
+    alignItems: "center",
   },
 });

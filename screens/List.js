@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { View, TextInput, Button, FlatList } from "react-native";
-import { styles } from "./styles";
+import {
+  View,
+  TextInput,
+  FlatList,
+  TouchableOpacity,
+  Text,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
+import { styles } from "./listStyles";
 import ListItem from "./ListItem";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useNavigation } from "@react-navigation/native";
-import DetailsScreen from "./DetailsScreen";
 import Data from "./data.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Toast from "react-native-toast-message";
 import { LinearGradient } from "expo-linear-gradient";
-
-const Stack = createStackNavigator();
 
 const List = () => {
   const [name, setName] = useState("");
@@ -107,6 +111,12 @@ const List = () => {
     }
   };
 
+  const handleScreenTouch = () => {
+    Keyboard.dismiss();
+  };
+
+  const COLUMN_COUNT = 2;
+
   const renderItem = ({ item }) => {
     return (
       <ListItem
@@ -124,47 +134,51 @@ const List = () => {
   };
 
   return (
-    <LinearGradient
-      colors={["#5D49C6", "#9969CC", "#C580CF"]}
-      style={styles.buttonContainer}
-    >
-      <View style={styles.container}>
-        <View style={styles.view}>
-          <TextInput
-            placeholder="Client name"
-            value={name}
-            onChangeText={(text) => setName(text)}
-            style={styles.orderName}
-          />
-          <View style={styles.wrappper}>
-            <Button
-              title="Add to list"
-              onPress={handleAddItem}
-              color={"#331984"}
+    <View style={{ flex: 1 }}>
+      <LinearGradient
+        colors={["#F5E4D7", "#839788", "#BDBBB6"]}
+        style={styles.buttonContainer}
+      >
+        <TouchableWithoutFeedback onPress={handleScreenTouch}>
+          <View style={styles.container}>
+            <View style={styles.addClient}>
+              <TextInput
+                placeholder="Enter Client name"
+                value={name}
+                onChangeText={(text) => setName(text)}
+                style={styles.orderName}
+                placeholderTextColor="black"
+              />
+              <View style={styles.addClientButton}>
+                <TouchableOpacity
+                  style={styles.detailsButton}
+                  onPress={handleAddItem}
+                >
+                  <Text style={styles.detailsButtonText}>Add to list</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.searchClient}>
+              <TextInput
+                placeholder="Search a client in the list"
+                value={filterValue}
+                onChangeText={handleFilterItems}
+                style={styles.filterInput}
+                placeholderTextColor="#30302f"
+              />
+            </View>
+
+            <FlatList
+              renderItem={renderItem}
+              data={filteredItems}
+              keyExtractor={(item) => item.id}
+              style={styles.listWrapper}
+              numColumns={2}
             />
           </View>
-        </View>
-        <TextInput
-          placeholder="Search a client in the list"
-          value={filterValue}
-          onChangeText={handleFilterItems}
-          style={styles.filterInput}
-        />
-        <FlatList
-          renderItem={renderItem}
-          data={filteredItems}
-          keyExtractor={(item) => item.id}
-        />
-
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Details"
-            component={DetailsScreen}
-            options={{ title: "Details" }}
-          />
-        </Stack.Navigator>
-      </View>
-    </LinearGradient>
+        </TouchableWithoutFeedback>
+      </LinearGradient>
+    </View>
   );
 };
 
