@@ -20,9 +20,8 @@ export const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   text: {
-    fontFamily: "roboto",
     fontSize: 20,
-    fontWeight: "bold",
+    
     color: "blue",
   },
   inputContainer: {
@@ -43,7 +42,7 @@ export const styles = StyleSheet.create({
   },
   detailsTitle: {
     fontSize: 17,
-    fontWeight: "bold",
+   
     padding: 3,
   },
   detailsInput: {

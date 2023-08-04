@@ -3,8 +3,21 @@
     "name": "XClient",
     "slug": "XClient",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
+    "icon": "./media/ClientsX.png",
+    "assetBundlePatterns": ["**/*"],
+    "fonts": [
+      {
+        "name": "Roboto",
+        "asset": "./media/fonts/Roboto-Regular.ttf"
+      },
+      {
+        "name": "Roboto-Bold",
+        "asset": "./media/fonts/Roboto-Bold.ttf"
+      },
+      {
+        "name": "Roboto-Medium",
+        "asset": "./media/fonts/Roboto-Medium.ttf"
+      }
     ],
     "extra": {
       "eas": {

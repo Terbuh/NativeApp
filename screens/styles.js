@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   text: {
     fontFamily: "roboto",
     fontSize: 20,
-    fontWeight: "bold",
+   
     color: "blue",
   },
   inputContainer: {
@@ -40,11 +40,15 @@ export const styles = StyleSheet.create({
   },
   detailsTitle: {
     fontSize: 17,
-    fontWeight: "bold",
+
     padding: 3,
   },
   detailsInput: {
-    fontSize: 17,
+    fontSize: 20,
+    backgroundColor: "rgba(245, 228, 215, 0.2)",
+    minWidth: "30%",
+    maxWidth: "50%",
+    color: "black",
   },
   detailsContainer: {
     height: "100%",
@@ -64,5 +68,13 @@ export const styles = StyleSheet.create({
     borderBottomColor: "gray",
     height: "5%",
     width: "40%",
+  },
+  detailsButton: {
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  detailsButtonText: {
+    color: "#A64253",
+    fontSize: 20,
   },
 });

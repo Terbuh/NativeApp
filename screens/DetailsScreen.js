@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from "react-native";
+import { View, TouchableWithoutFeedback, Keyboard, Text, TextInput } from "react-native";
 import { styles } from "./styles";
 import Calculate from "./Calculate";
 import { LinearGradient } from "expo-linear-gradient";

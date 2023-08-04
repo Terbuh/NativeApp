@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
   View,
-  Text,
-  TextInput,
-  Button,
   TouchableWithoutFeedback,
   Keyboard,
+  TouchableOpacity,
+  Text,
+  TextInput
 } from "react-native";
 import { styles } from "./styles";
 import Toast from "react-native-toast-message";
@@ -109,7 +109,11 @@ const Calculate = ({ route, onSaveData }) => {
             editable={false}
           />
         </View>
-        <Button title="Save" onPress={handleSave} color={"#331984"} />
+        <View style={styles.addClientButton}>
+          <TouchableOpacity style={styles.detailsButton} onPress={handleSave}>
+            <Text style={styles.detailsButtonText}>Save</Text>
+          </TouchableOpacity>
+        </View>
         <Toast ref={(ref) => Toast.setRef(ref)} />
       </View>
     </TouchableWithoutFeedback>
