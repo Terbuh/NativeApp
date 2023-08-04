@@ -47,13 +47,13 @@ const ListItem = ({ item, onPressDetails, onItemDelete }) => {
               style={styles.modalButton}
               onPress={handleDeleteConfirmed}
             >
-              <Text style={styles.buttonText}>Delete</Text>
+              <Text style={styles.popUpDelete}>Delete</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.deleteModalButton}
               onPress={handleCancel}
             >
-              <Text style={styles.buttonText}>Cancel</Text>
+              <Text style={styles.popUpCancel}>Cancel</Text>
             </TouchableOpacity>
           </View>
         </Modal>

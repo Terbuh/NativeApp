@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     width: "50%",
   },
   modalButton: {
-    backgroundColor: "#F5E4D7",
+    
     padding: 10,
     alignItems: "center",
     borderRadius: 5,
@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
     width: "50%",
   },
   deleteModalButton: {
-    backgroundColor: "#F5E4D7",
     padding: 10,
     alignItems: "center",
     borderRadius: 5,
@@ -74,4 +73,12 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
   },
+  popUpDelete:{
+  color: "#A64253",
+    fontSize: 16,
+  },
+  popUpCancel:{
+    color: "Black",
+    fontSize: 16,
+  }
 });
