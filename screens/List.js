@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Text,
   Keyboard,
-  TouchableWithoutFeedback,
 } from "react-native";
 import { styles } from "./listStyles";
 import ListItem from "./ListItem";
@@ -139,7 +138,7 @@ const List = () => {
         colors={["#F5E4D7", "#839788", "#BDBBB6"]}
         style={styles.buttonContainer}
       >
-        <TouchableWithoutFeedback onPress={handleScreenTouch}>
+       
           <View style={styles.container}>
             <View style={styles.addClient}>
               <TextInput
@@ -174,9 +173,10 @@ const List = () => {
               keyExtractor={(item) => item.id}
               style={styles.listWrapper}
               numColumns={2}
+              
             />
           </View>
-        </TouchableWithoutFeedback>
+      
       </LinearGradient>
     </View>
   );
