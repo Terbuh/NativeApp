@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, TouchableWithoutFeedback, Keyboard, Text, TextInput } from "react-native";
+import { View, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { styles } from "./styles";
 import Calculate from "./Calculate";
 import { LinearGradient } from "expo-linear-gradient";
+import { RobText, RobTextInput } from "../styledComponents";
 
 const DetailsScreen = ({ route }) => {
   const { customer, onItemUpdate } = route.params || {};
@@ -35,8 +36,8 @@ const DetailsScreen = ({ route }) => {
       <TouchableWithoutFeedback onPress={handleScreenTouch}>
         <View style={styles.detailsContainer}>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>Name:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>Name:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.name}
               onChangeText={(text) =>
@@ -45,8 +46,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>Surname:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>Surname:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.surname}
               onChangeText={(text) =>
@@ -55,8 +56,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>VIN:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>VIN:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.vin}
               onChangeText={(text) =>
@@ -65,8 +66,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>Phone:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>Phone:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.phone}
               onChangeText={(text) =>
@@ -76,8 +77,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>Car:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>Car:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.car}
               onChangeText={(text) =>
@@ -86,8 +87,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>Engine:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>Engine:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.engine}
               onChangeText={(text) =>
@@ -96,8 +97,8 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <View style={styles.wrapper_single}>
-            <Text style={styles.detailsTitle}>KW:</Text>
-            <TextInput
+            <RobText style={styles.detailsTitle}>KW:</RobText>
+            <RobTextInput
               style={styles.detailsInput}
               value={customerData.kw}
               onChangeText={(text) =>

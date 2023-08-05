@@ -3,7 +3,7 @@
     "name": "XClient",
     "slug": "XClient",
     "version": "1.0.0",
-    "icon": "./media/ClientsX.png",
+    "icon": "./assets/ClientsX.png",
     "assetBundlePatterns": ["**/*"],
     "fonts": [
       {

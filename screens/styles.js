@@ -4,10 +4,8 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    // height: "200%",
   },
   linearGradient: {
-    // flex: 1,
     paddingLeft: 15,
     paddingRight: 15,
     borderRadius: 5,
@@ -17,10 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontFamily: "roboto",
     fontSize: 20,
-   
-    color: "blue",
   },
   inputContainer: {
     marginBottom: 10,
@@ -60,6 +55,29 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 5,
     height: 40,
+  },
+  wrapper_czynnosci: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    alignContent: 'center',
+    marginBottom: 5,
+    height: 40,
+  },
+  czynnosciContainer: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 10
+  },
+  czynnoscItem: {
+    fontSize: 15
+  },
+  czynnosciAdd: {
+    fontSize: 20,
+    backgroundColor: "rgba(245, 228, 215, 0.2)",
+    minWidth: "30%",
+    maxWidth: "50%",
+    color: "black",
   },
   filterInput: {
     borderTopWidth: 1,

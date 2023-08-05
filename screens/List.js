@@ -1,11 +1,8 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import {
   View,
-  TextInput,
   FlatList,
   TouchableOpacity,
-  Text,
-  Keyboard,
 } from "react-native";
 import { styles } from "./listStyles";
 import ListItem from "./ListItem";
@@ -14,8 +11,9 @@ import Data from "./data.json";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Toast from "react-native-toast-message";
 import { LinearGradient } from "expo-linear-gradient";
+import { RobText, RobTextInput } from "../styledComponents";
 
-const List = () => {
+const List = forwardRef((props, ref) => {
   const [name, setName] = useState("");
   const [items, setItems] = useState(Data.customers);
   const [filteredItems, setFilteredItems] = useState(Data.customers);
@@ -66,6 +64,7 @@ const List = () => {
           type: "success",
           text1: "Successfully added",
           visibilityTime: 3000,
+          backgroundColor: "blue",
         });
       } catch (error) {
         console.error("Error storing data:", error);
@@ -103,6 +102,7 @@ const List = () => {
         type: "info",
         text1: `Successfully deleted ${itemName}`,
         visibilityTime: 3000,
+        backgroundColor: "blue",
       });
     } catch (error) {
       console.error("Error storing data:", error);
@@ -124,7 +124,7 @@ const List = () => {
       <ListItem
         item={item}
         onItemUpdate={handleUpdateItem}
-        onItemDelete={(itemId) => handleDeleteItem(itemId, item.name)}
+        onItemDelete={(itemId, itemName) => handleDeleteItem(itemId, itemName)}
         onPressDetails={() => {
           navigation.navigate("Details", {
             customer: item,
@@ -135,6 +135,9 @@ const List = () => {
     );
   };
 
+
+
+
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
@@ -143,7 +146,7 @@ const List = () => {
       >
         <View style={styles.container}>
           <View style={styles.addClient}>
-            <TextInput
+            <RobTextInput
               placeholder="Enter Client name"
               value={name}
               onChangeText={(text) => setName(text)}
@@ -155,12 +158,12 @@ const List = () => {
                 style={styles.detailsButton}
                 onPress={handleAddItem}
               >
-                <Text style={styles.detailsButtonText}>Add to list</Text>
+                <RobText style={styles.detailsButtonText}>Add to list</RobText>
               </TouchableOpacity>
             </View>
           </View>
           <View style={styles.searchClient}>
-            <TextInput
+            <RobTextInput
               placeholder="Search a client in the list"
               value={filterValue}
               onChangeText={handleFilterItems}
@@ -178,9 +181,9 @@ const List = () => {
           />
         </View>
       </LinearGradient>
-      <Toast ref={(ref) => Toast.setRef(ref)} />
+      <Toast ref={ref} />
     </View>
   );
-};
+});
 
 export default List;

@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: "white",
     fontSize: 16,
+    
   },
   detailsButton: {
     padding: 10,
@@ -59,14 +60,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 20,
   },
-  buttonTextDelete: {
-    color: "Red",
-    fontSize: 16,
-  },
-  buttonTextCancel: {
-    color: "Black",
-    fontSize: 16,
-  },
   test: {
     backgroundColor: "rgba(245, 228, 215, 0.2)",
     borderRadius: 20,
@@ -77,7 +70,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   popUpCancel: {
-    color: "Black",
+    color: "#000000",
     fontSize: 16,
   },
 });

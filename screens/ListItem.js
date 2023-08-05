@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import { styles } from "./listItemStyles";
+import { RobText } from "../styledComponents";
 
 const ListItem = ({ item, onPressDetails, onItemDelete }) => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -23,37 +24,37 @@ const ListItem = ({ item, onPressDetails, onItemDelete }) => {
     return (
       <View style={styles.itemContainer}>
         <View style={styles.test}>
-          <Text style={styles.itemText}>Name: {item.name}</Text>
+          <RobText style={styles.itemText}>Name: {item.name}</RobText>
           <TouchableOpacity
             style={styles.detailsButton}
             onPress={onPressDetails}
           >
-            <Text style={styles.detailsButtonText}>Details</Text>
+            <RobText style={styles.detailsButtonText}>Details</RobText>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.deleteButton}
             onPress={handleDeleteClick}
           >
-            <Text style={styles.deleteButtonText}>Delete</Text>
+            <RobText style={styles.deleteButtonText}>Delete</RobText>
           </TouchableOpacity>
         </View>
 
         <Modal isVisible={isModalVisible}>
           <View style={styles.modalContainer}>
-            <Text style={styles.modalText}>
+            <RobText style={styles.modalText}>
               Are you sure you want to delete this item?
-            </Text>
+            </RobText>
             <TouchableOpacity
               style={styles.modalButton}
               onPress={handleDeleteConfirmed}
             >
-              <Text style={styles.popUpDelete}>Delete</Text>
+              <RobText style={styles.popUpDelete}>Delete</RobText>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.deleteModalButton}
               onPress={handleCancel}
             >
-              <Text style={styles.popUpCancel}>Cancel</Text>
+              <RobText style={styles.popUpCancel}>Cancel</RobText>
             </TouchableOpacity>
           </View>
         </Modal>
