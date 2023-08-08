@@ -1,43 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, TouchableWithoutFeedback, Keyboard } from "react-native";
-import { styles } from "./styles";
-import Calculate from "./Calculate";
 import { LinearGradient } from "expo-linear-gradient";
 import { RobText, RobTextInput } from "../styledComponents";
+import Calculate from "./Calculate";
+import HistoryScreen from "./HistoryScreen";
 import { useNavigation } from "@react-navigation/native";
+import { styles } from './styles'
 
 const DetailsScreen = ({ route }) => {
   const { customer, onItemUpdate } = route.params || {};
   const [customerData, setCustomerData] = useState(customer);
-  const [historyData, setHistoryData] = useState([]);
-
   const navigation = useNavigation();
 
-  const handleSaveData = (czesciKlient, robocizna, sum, czesci, sumIncome) => {
-    const updatedCustomer = {
-      ...customerData,
-      czesciKlient: parseFloat(czesciKlient),
-      robocizna: parseFloat(robocizna),
-      suma: parseFloat(sum),
-      czesci: parseFloat(czesci),
-      sumIncome: parseFloat(sumIncome),
-    };
-
-    setCustomerData(updatedCustomer);
-    onItemUpdate(updatedCustomer);
-
-    // Dodajemy nowy element do historii
-    const currentDate = new Date().toLocaleString();
-    const historyItem = {
-      date: currentDate,
-      czynnosci: czesciKlient,
-      income: sumIncome,
-    };
-
-    setHistoryData((prevHistoryData) => [historyItem, ...prevHistoryData]);
-    console.log(historyData);
-  };
-  const handleShowHistory = () => {
+  const handleShowHistory = (historyData) => {
     navigation.navigate("HistoryScreen", { historyData });
   };
 
@@ -48,6 +23,7 @@ const DetailsScreen = ({ route }) => {
   if (!customer) {
     return null;
   }
+
   return (
     <LinearGradient
       colors={["#F5E4D7", "#839788", "#BDBBB6"]}
@@ -128,12 +104,14 @@ const DetailsScreen = ({ route }) => {
             />
           </View>
           <Calculate
+
             route={route}
-            customer={customer}
+            initialCustomer={customerData} // Zmienione customer na initialCustomer
             onItemUpdate={onItemUpdate}
-            onSaveData={handleSaveData}
-            onShowHistory={handleShowHistory}
+            setCustomerData={setCustomerData}
+            onShowHistory={handleShowHistory} // Przekazanie funkcji onShowHistory jako prop
           />
+
         </View>
       </TouchableWithoutFeedback>
     </LinearGradient>

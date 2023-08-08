@@ -1,27 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  View,
-  TouchableWithoutFeedback,
-  Keyboard,
-  TouchableOpacity,
-} from "react-native";
-import { styles } from "./styles";
+import React, { useState, useEffect } from "react";
+import { View, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from "react-native";
 import Toast from "react-native-toast-message";
 import { RobText, RobTextInput } from "../styledComponents";
+import { styles } from './styles'
 
-const Calculate = ({ route, onSaveData, onShowHistory }) => {
-  const { customer, onItemUpdate } = route.params || {};
-  const [customerData, setCustomerData] = useState(customer);
-  const [czesciKlient, setCzesciKlient] = useState(customer.czesciKlient || "");
-  const [robocizna, setRobocizna] = useState(customer.robocizna || "");
-  const [czesci, setCzesci] = useState(customer.czesci || "");
-
-  useEffect(() => {
-    setCustomerData(customer);
-    setCzesciKlient(customer.czesciKlient || "");
-    setRobocizna(customer.robocizna || "");
-    setCzesci(customer.czesci || "");
-  }, [customer]);
+const Calculate = ({ route, onItemUpdate, initialCustomer, setCustomerData, onShowHistory }) => {
+  const [czesciKlient, setCzesciKlient] = useState(initialCustomer.czesciKlient || "");
+  const [robocizna, setRobocizna] = useState(initialCustomer.robocizna || "");
+  const [czesci, setCzesci] = useState(initialCustomer.czesci || "");
 
   const calculateSum = () => {
     const parts = parseFloat(czesciKlient) || 0;
@@ -41,12 +27,28 @@ const Calculate = ({ route, onSaveData, onShowHistory }) => {
   };
 
   const handleSave = () => {
-    const sum = calculateSum().toString();
-    const sumIncome = calculateIncome().toString();
-    onSaveData(czesciKlient, robocizna, sum, czesci, sumIncome);
+    const sum = calculateSum();
+    const sumIncome = calculateIncome();
+
+    const newHistoryItem = {
+      date: new Date().toISOString(),
+      income: sumIncome,
+    };
+
+    const updatedCustomer = {
+      ...initialCustomer,
+      czesciKlient: parseFloat(czesciKlient),
+      robocizna: parseFloat(robocizna),
+      suma: parseFloat(sum),
+      czesci: parseFloat(czesci),
+      sumIncome: parseFloat(sumIncome),
+      historyData: [...initialCustomer.historyData, newHistoryItem],
+    };
+
+    setCustomerData(updatedCustomer);
+    onItemUpdate(updatedCustomer);
     showSuccessMessage("Saved correctly");
   };
-
 
   const showSuccessMessage = (message) => {
     Toast.show({
@@ -56,10 +58,10 @@ const Calculate = ({ route, onSaveData, onShowHistory }) => {
       visibilityTime: 2000,
     });
   };
+
   const handleScreenTouch = () => {
     Keyboard.dismiss();
   };
-
   return (
     <TouchableWithoutFeedback onPress={handleScreenTouch}>
       <View>
@@ -115,7 +117,7 @@ const Calculate = ({ route, onSaveData, onShowHistory }) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.detailsButton}
-            onPress={onShowHistory}
+            onPress={() => onShowHistory([...initialCustomer.historyData])}
           >
             <RobText style={styles.detailsButtonText}>History</RobText>
           </TouchableOpacity>
