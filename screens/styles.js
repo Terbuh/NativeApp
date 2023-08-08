@@ -79,6 +79,15 @@ export const styles = StyleSheet.create({
     maxWidth: "50%",
     color: "black",
   },
+  wrapper_history: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    alignContent: 'center',
+    marginBottom: 5,
+    height: 40,
+  },
+
   filterInput: {
     borderTopWidth: 1,
     borderTopColor: "gray",
@@ -94,5 +103,23 @@ export const styles = StyleSheet.create({
   detailsButtonText: {
     color: "#A64253",
     fontSize: 20,
+  },
+  historyItem: {
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+  },
+  historyContainer: { height: 400 },
+  dateText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  incomeText: {
+    fontSize: 16,
+    marginBottom: 3,
+  },
+  czynnosciText: {
+    fontSize: 16,
   },
 });

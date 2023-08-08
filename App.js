@@ -3,6 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import List from "./screens/List";
 import DetailsScreen from "./screens/DetailsScreen";
+import HistoryScreen from './screens/HistoryScreen';
+
 
 const Stack = createStackNavigator();
 
@@ -32,6 +34,12 @@ const App = () => {
             },
           }}
         />
+        <Stack.Screen name="HistoryScreen" component={HistoryScreen} options={{
+          title: "History",
+          headerStyle: {
+            backgroundColor: "#F5E4D7",
+          },
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
 
